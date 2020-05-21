@@ -14,13 +14,13 @@ public class Command implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String s, String[] args) {
         if (!(sender instanceof Player)) {
-            Messages.sendMessageToConsole("You cannot use this command in the console");
+            Messages.sendMessageToConsole(Main.getInstance().getConfig().getString("notInConsole"));
         }
 
         Player p = (Player) sender;
 
         if(!p.hasPermission("timedteleport.use")) {
-            Messages.sendMessageToPlayer(p, "&cYou cannot do this");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("notAllowed"));
             return true;
         }
 
@@ -63,7 +63,7 @@ public class Command implements CommandExecutor {
                 Teleporter t = TeleporterManager.getTeleporter(args[1]);
 
                 if(t == null) {
-                    Messages.sendMessageToPlayer(p, "&cThis timer does not exist");
+                    Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("timerNotExists"));
                     return true;
                 }
 

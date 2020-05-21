@@ -1,6 +1,5 @@
 package me.playbosswar.timedteleport.utils;
 
-import com.google.gson.JsonArray;
 import me.playbosswar.timedteleport.Main;
 
 import java.io.File;
@@ -43,7 +42,7 @@ public class Files {
             File file = new File(getTeleporterFilePath(name));
 
             if (file.exists()) {
-                Messages.sendMessageToPlayer(p, "This name is already in use");
+                Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("nameAlreadyUsed"));
                 return;
             }
 
@@ -62,9 +61,9 @@ public class Files {
             Teleporter t = new Teleporter(name, new ArrayList<>(), 1);
             TeleporterManager.addTeleporter(t);
 
-            Messages.sendMessageToPlayer(p, "A new timed teleport has been created.");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("created"));
         } catch (IOException e) {
-            Messages.sendMessageToPlayer(p, "&cSomething went wrong");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("error"));
             e.printStackTrace();
         }
     }
@@ -73,22 +72,22 @@ public class Files {
         File file = new File(getTeleporterFilePath(name));
 
         if (!teleportFileExists(name)) {
-            Messages.sendMessageToPlayer(p, "This timer does not exists");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("timerNotExists"));
             return;
         }
 
         if (file.delete()) {
             TeleporterManager.removeTeleporter(name);
-            Messages.sendMessageToPlayer(p, "This timer has been deleted");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("deleted"));
             return;
         }
 
-        Messages.sendMessageToPlayer(p, "&cWe could not delete this timer");
+        Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("error"));
     }
 
     public static void addPointToTimedTeleport(Player p, String teleportName) {
         if (!teleportFileExists(teleportName)) {
-            Messages.sendMessageToPlayer(p, "This timer does not exists");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("timerNotExists"));
             return;
         }
 
@@ -117,19 +116,19 @@ public class Files {
 
             TeleporterManager.getTeleporter(teleportName).addLocation(loc);
 
-            Messages.sendMessageToPlayer(p, "Point has been added");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("locationAdded"));
         } catch (IOException e) {
-            Messages.sendMessageToPlayer(p, "&cSomething went wrong, could not write to file");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("error"));
             e.printStackTrace();
         } catch (ParseException e) {
-            Messages.sendMessageToPlayer(p, "&cSomething went wrong, could not read file");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("error"));
             e.printStackTrace();
         }
     }
 
     public static void setTimerDuration(Player p, int duration, String teleportName) {
         if (!teleportFileExists(teleportName)) {
-            Messages.sendMessageToPlayer(p, "This timer does not exists");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("timerNotExists"));
             return;
         }
 
@@ -148,10 +147,10 @@ public class Files {
 
             Messages.sendMessageToPlayer(p, "Duration has been updated");
         } catch (IOException e) {
-            Messages.sendMessageToPlayer(p, "&cSomething went wrong, could not write to file");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("error"));
             e.printStackTrace();
         } catch (ParseException e) {
-            Messages.sendMessageToPlayer(p, "&cSomething went wrong, could not read file");
+            Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("error"));
             e.printStackTrace();
         }
     }

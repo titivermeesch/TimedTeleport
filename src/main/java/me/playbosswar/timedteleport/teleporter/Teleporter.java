@@ -16,14 +16,6 @@ public class Teleporter {
         this.duration = duration;
     }
 
-    public ArrayList<Location> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(ArrayList<Location> locations) {
-        this.locations = locations;
-    }
-
     public void addLocation(Location loc) {
         locations.add(loc);
     }
@@ -38,10 +30,6 @@ public class Teleporter {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Location getNextLocation() {

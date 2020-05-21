@@ -1,0 +1,25 @@
+## Language configuration
+
+prefix: "&6TimedTeleport > &f"
+notInConsole: "You cannot use this command in the console"
+error: "&cSomething went wrong"
+notAllowed: "&cYou cannot do this"
+timerNotExists: "&cThis timer does not exist"
+teleportStarted: "You are in the teleport loop"
+teleportStopped: "You are not being teleported anymore"
+nameAlreadyUsed: "This name is already in use"
+created: "A new timed teleport has been created"
+locationAdded: "Point has been added"
+deleted: "This timer has been deleted"
+
+## Help menu language
+help1: "&9Please use one of the following commands"
+help2: ""
+help3: "&9/timedteleport : Main help command"
+help4: "&9/timedteleport list : Show all loaded timers"
+help5: "&9/timedteleport create <name> : Create a new teleport cycle"
+help6: "&9/timedteleport remove <name> : Remove an exisiting teleport cycle"
+help7: "&9/timedteleport addpoint <name>: Add current location to <name>"
+help8: "&9/timedteleport setduration <name> <seconds>: Set number of seconds between each teleport"
+help9: "&9/timedteleport start <name> : Start timed teleport for you"
+help10: "&9/timedteleport stop : Stop timed teleport"

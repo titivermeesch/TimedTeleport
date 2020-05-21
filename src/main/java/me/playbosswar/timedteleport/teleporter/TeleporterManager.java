@@ -1,5 +1,6 @@
 package me.playbosswar.timedteleport.teleporter;
 
+import me.playbosswar.timedteleport.Main;
 import me.playbosswar.timedteleport.utils.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -36,13 +37,13 @@ public class TeleporterManager {
 
     public static void addSchedule(Player p,  int id) {
         teleportSchedules.put(p.getUniqueId(), id);
-        Messages.sendMessageToPlayer(p, "You are in the teleport loop");
+        Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("teleportStarted"));
     }
 
     public static void stopSchedule(Player p) {
         int scheduleId = teleportSchedules.get(p.getUniqueId());
 
         Bukkit.getScheduler().cancelTask(scheduleId);
-        Messages.sendMessageToPlayer(p, "You are not being teleported anymore");
+        Messages.sendMessageToPlayer(p, Main.getInstance().getConfig().getString("teleportStopped"));
     }
 }

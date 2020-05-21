@@ -1,5 +1,6 @@
 package me.playbosswar.timedteleport.utils;
 
+import me.playbosswar.timedteleport.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -10,20 +11,20 @@ public class Messages {
     }
 
     public static void sendMessageToPlayer(Player p, String message) {
-        p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6TimedTeleport > &f" + message));
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', Main.getInstance().getConfig().getString("prefix") + message));
     }
 
     public static void sendHelpMenu(Player p) {
-        sendMessageToPlayer(p, "&6Welcome to TimedTeleport");
-        sendMessageToPlayer(p, "&9Please use one of the following commands");
-        sendMessageToPlayer(p, "");
-        sendMessageToPlayer(p, "&9/timedteleport : Main help command");
-        sendMessageToPlayer(p, "&9/timedteleport list : Show all loaded timers");
-        sendMessageToPlayer(p, "&9/timedteleport create <name> : Create a new teleport cycle");
-        sendMessageToPlayer(p, "&9/timedteleport remove <name> : Remove an exisiting teleport cycle");
-        sendMessageToPlayer(p, "&9/timedteleport addpoint <name>: Add current location to <name>");
-        sendMessageToPlayer(p, "&9/timedteleport setduration <name> <seconds>: Set number of seconds between each teleport");
-        sendMessageToPlayer(p, "&9/timedteleport start <name> : Start timed teleport for you");
-        sendMessageToPlayer(p, "&9/timedteleport stop : Stop timed teleport");
+        sendMessageToPlayer(p, "&6Welcome to TimedTeleport v1.1 by PlayBossWar");
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help1"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help2"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help3"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help4"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help5"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help6"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help7"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help8"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help9"));
+        sendMessageToPlayer(p, Main.getInstance().getConfig().getString("help10"));
     }
 }
