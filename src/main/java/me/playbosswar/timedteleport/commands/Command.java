@@ -19,6 +19,11 @@ public class Command implements CommandExecutor {
 
         Player p = (Player) sender;
 
+        if(!p.hasPermission("timedteleport.use")) {
+            Messages.sendMessageToPlayer(p, "&cYou cannot do this");
+            return true;
+        }
+
         if (args.length == 0) {
             Messages.sendHelpMenu(p);
             return true;
