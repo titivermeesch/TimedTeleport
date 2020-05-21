@@ -1,6 +1,7 @@
 package me.playbosswar.timedteleport;
 
 import me.playbosswar.timedteleport.commands.Command;
+import me.playbosswar.timedteleport.utils.Files;
 import me.playbosswar.timedteleport.utils.Messages;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,9 +12,9 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        getConfig().options().copyDefaults();
-        saveDefaultConfig();
         getCommand("timedteleport").setExecutor(new Command());
+        Files.createDataFolders();
+        Files.deserializeJsonFilesIntoTeleporters();
         Messages.sendMessageToConsole("enabled");
     }
 

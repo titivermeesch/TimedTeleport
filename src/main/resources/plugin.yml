@@ -2,3 +2,8 @@ main: me.playbosswar.timedteleport.Main
 name: "${project.name}"
 version: "${project.version}"
 description: "${project.description}"
+
+commands:
+  timedteleport:
+    usage: /<command>
+    description: Main TimedTeleport command
