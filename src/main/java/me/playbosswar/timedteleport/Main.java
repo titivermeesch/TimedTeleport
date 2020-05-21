@@ -13,6 +13,8 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         instance = this;
         getCommand("timedteleport").setExecutor(new Command());
+        getConfig().options().copyDefaults(true);
+        saveDefaultConfig();
         Files.createDataFolders();
         Files.deserializeJsonFilesIntoTeleporters();
         Messages.sendMessageToConsole("enabled");

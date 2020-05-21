@@ -7,7 +7,7 @@
     <groupId>me.playbosswar.timedteleport</groupId>
     <artifactId>timedteleport</artifactId>
     <name>TimedTeleport</name>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <description>Teleport to a set of locations in aa given time</description>
 
     <build>
